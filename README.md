@@ -24,6 +24,61 @@
 
 ---
 
+## 快速开始
+
+如果你想把这套东西快速塞进自己的 OpenClaw workspace，建议按这个顺序：
+
+### 1. 先把文档放进 workspace
+至少放这些：
+
+- `MULTI_AGENT_WORKFLOW.md`
+- `context/agent-orchestration-overview.md`
+- `context/main-continuation-router.md`
+- `tasks/workflow.md`
+- `tasks/continuation-spec.md`
+
+### 2. 准备一个共享任务看板
+核心文件：
+
+- `tasks/active-tasks.json`
+
+最小字段建议包括：
+
+- `task_id`
+- `title`
+- `owner_agent`
+- `status`
+- `current_step`
+- `last_progress_at`
+- `next_action`
+- `summary`
+- `continuation_mode`
+- `continue_target`
+- `continue_brief`
+- `stale_after_minutes`
+
+### 3. 给 agent 分角色
+最低建议：
+
+- `main` 负责总控和转发
+- `monkey` 负责内容执行
+- `panda` 负责资料搜集
+- `assi` 负责监督和续推判断
+
+### 4. 先打通一条最小链路
+推荐先验证：
+
+- `monkey` 能否被拉起
+- `monkey` 能否读共享看板
+- `monkey` 能否写文件
+- `monkey` 能否回写任务状态
+- `assi` 能否读看板并生成监督消息
+
+### 5. 再接自动触发
+建议先从 **worker-based v1** 开始，而不是一上来追求最优雅的完整自动闭环。
+
+---
+
 ## 已经实现了什么
 
 目前已经打通的部分：
