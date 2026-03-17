@@ -26,6 +26,33 @@ Current 4-agent split:
 
 ---
 
+## Architecture / Flow
+
+```mermaid
+flowchart TD
+    U[User] --> M[main\norchestration / task creation / routing]
+    M --> B[(tasks/active-tasks.json\nshared task board)]
+    M --> MK[monkey\ncontent execution]
+    M --> PD[panda\nresearch]
+    B --> AS[assi\nsupervision / stale detection / continuation intent]
+    AS --> M
+    MK --> B
+    PD --> B
+    C[cron / continuation worker\nauto-trigger v1] --> MK
+    C --> B
+    MK --> O[task output files]
+    PD --> O
+```
+
+### In one sentence
+
+- `main` creates, routes, and summarizes tasks
+- `monkey/panda` execute and write state back
+- `assi` watches the board and decides when a task has gone stale
+- the `cron worker` provides the current v1 automatic continuation path
+
+---
+
 ## What is already working
 
 Working pieces validated so far:

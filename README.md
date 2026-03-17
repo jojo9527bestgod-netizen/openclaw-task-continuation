@@ -24,6 +24,33 @@
 
 ---
 
+## 架构图 / 流程图
+
+```mermaid
+flowchart TD
+    U[用户 / User] --> M[main\n总控 / 建任务 / 汇总 / 转发]
+    M --> B[(tasks/active-tasks.json\n共享任务看板)]
+    M --> MK[monkey\n内容执行]
+    M --> PD[panda\n信息搜集]
+    B --> AS[assi\n监督 / stale 判断 / 续推意图]
+    AS --> M
+    MK --> B
+    PD --> B
+    C[cron / continuation worker\n自动触发 v1] --> MK
+    C --> B
+    MK --> O[任务产出 / output files]
+    PD --> O
+```
+
+### 一句话理解
+
+- `main` 负责建任务、分派和汇总
+- `monkey/panda` 负责干活并回写状态
+- `assi` 负责盯看板，判断任务有没有停住
+- `cron worker` 负责在 v1 里做自动续推
+
+---
+
 ## 快速开始
 
 如果你想把这套东西快速塞进自己的 OpenClaw workspace，建议按这个顺序：
