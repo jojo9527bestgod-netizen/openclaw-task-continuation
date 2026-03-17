@@ -1,0 +1,10 @@
+{
+  "task_id": "task-20260317-001",
+  "continue_target": "monkey",
+  "continuation_mode": "supervised",
+  "continue_brief": "补足剩余选题到10条，并为每条补一句切入角度。",
+  "stale_after_minutes": 45,
+  "auto_continue_count": 0,
+  "max_auto_continues": 6,
+  "last_supervised_at": ""
+}

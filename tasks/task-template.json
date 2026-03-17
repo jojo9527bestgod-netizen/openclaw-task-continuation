@@ -1,0 +1,15 @@
+{
+  "task_id": "task-20260317-001",
+  "title": "北京旅游业务介绍 PPT",
+  "owner_agent": "monkey",
+  "status": "running",
+  "current_step": "输出 PPT 目录",
+  "last_progress_at": "2026-03-17T17:10:00+08:00",
+  "next_action": "基于目录继续写前 5 页文案",
+  "report_to": "main",
+  "summary": "已确认任务目标，准备先产出 PPT 目录。",
+  "needs_user_input": false,
+  "user_block_reason": "",
+  "created_at": "2026-03-17T17:10:00+08:00",
+  "updated_at": "2026-03-17T17:10:00+08:00"
+}
